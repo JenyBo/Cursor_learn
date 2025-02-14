@@ -12,11 +12,9 @@ export async function POST(request: Request) {
       .eq('key', apiKey)
       .single();
 
-    if (error) {
-      return NextResponse.json({ valid: false }, { status: 400 });
-    }
-
-    return NextResponse.json({ valid: true }, { status: 200 });
+    return new Response(JSON.stringify({ valid: !error }), {
+      status: error ? 400 : 200,
+    });
   } catch (error) {
     return NextResponse.json({ valid: false }, { status: 500 });
   }
