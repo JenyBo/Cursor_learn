@@ -6,9 +6,9 @@ export async function POST(request: Request) {
     const { apiKey } = await request.json();
 
     // Query the database to check if the API key exists
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('api_keys')
-      .select('id')
+      .select('*')
       .eq('key', apiKey)
       .single();
 

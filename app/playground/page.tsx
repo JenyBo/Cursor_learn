@@ -36,7 +36,7 @@ export default function Playground() {
       } else {
         setNotification({ message: 'Invalid API key', type: 'error' });
       }
-    } catch (error) {
+    } catch {
       setNotification({ message: 'Error validating API key', type: 'error' });
     }
   };

@@ -138,6 +138,8 @@ export default function CreateKeyModal({
             {initialData ? 'Save Changes' : 'Create'}
           </button>
         </div>
+
+        <p>Don&apos;t worry, you can always generate a new key later.</p>
       </div>
     </div>
   );

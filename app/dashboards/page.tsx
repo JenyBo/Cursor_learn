@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchApiKeys();
-  }, []);
+  }, [fetchApiKeys]);
 
   const showNotification = (message: string, type: 'success' | 'error' = 'success') => {
     setNotification({ message, type });
@@ -43,7 +43,7 @@ export default function Dashboard() {
     try {
       await navigator.clipboard.writeText(key);
       showNotification('Copied API Key to clipboard');
-    } catch (err) {
+    } catch {
       showNotification('Failed to copy API key', 'error');
     }
   };
