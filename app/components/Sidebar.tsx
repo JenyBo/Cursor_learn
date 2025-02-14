@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -13,7 +12,6 @@ import {
   BookOpenIcon,
   ChevronDownIcon,
   ArrowTopRightOnSquareIcon,
-  Bars3Icon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon
 } from '@heroicons/react/24/outline';
@@ -51,14 +49,14 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
       {/* Logo */}
       <div className="p-6">
         <Image 
-          src="/tavily-logo.png" 
+          src="/honkai.png" 
           alt="Tavily" 
           width={100} 
           height={32}
           className={`dark:hidden ${!isOpen && 'md:hidden'}`}
         />
         <Image 
-          src="/tavily-logo-dark.png" 
+          src="/honkai.png" 
           alt="Tavily" 
           width={100} 
           height={32}
