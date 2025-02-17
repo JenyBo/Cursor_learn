@@ -7,6 +7,7 @@ import Notification from '../components/Notification';
 import ApiKeysTable from '../components/ApiKeysTable';
 import { useApiKeys, ApiKey } from '../hooks/useApiKeys';
 import { useTheme } from '../hooks/useTheme';
+import { UserProfile } from '@/components/auth/UserProfile'
 
 export default function Dashboard() {
   const { apiKeys, fetchApiKeys, createKey, updateKey, deleteKey } = useApiKeys();
@@ -79,6 +80,22 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen p-8 bg-white dark:bg-[#0B1120] text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto space-y-8">
+        {/* Add UserProfile next to theme toggle */}
+        <div className="flex justify-end items-center gap-4">
+          <UserProfile />
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? (
+              <MoonIcon className="w-5 h-5" />
+            ) : (
+              <SunIcon className="w-5 h-5" />
+            )}
+          </button>
+        </div>
+
         {/* Current Plan Section - keep consistent gradient in both modes */}
         <div className="rounded-xl bg-gradient-to-r from-rose-200 via-purple-300 to-blue-300 p-8">
           <div className="flex justify-between items-center mb-6">
@@ -170,19 +187,6 @@ export default function Dashboard() {
           onClose={() => setNotification(null)}
         />
       )}
-
-      {/* Theme toggle button */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-        aria-label="Toggle theme"
-      >
-        {theme === 'light' ? (
-          <MoonIcon className="w-5 h-5" />
-        ) : (
-          <SunIcon className="w-5 h-5" />
-        )}
-      </button>
     </div>
   );
 }
